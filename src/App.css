@@ -85,6 +85,10 @@ input {
   text-align: center;
 }
 
+.weekdays {
+  margin-bottom: 0.25rem;
+}
+
 .day {
   text-align: center;
   font-size: 1.25rem;
@@ -108,6 +112,7 @@ input {
 }
 
 @media screen and (max-width: 600px) {
+  .weekdays,
   .calendar {
     gap: 0.5rem;
   }
