@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { useChangeYear } from './hooks/useChangeYear';
+import Month from './components/Month';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const { handleChangeYear } = useChangeYear(selectedYear, setSelectedYear);
+  const allMonths = Array(12).fill();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main className='container'>
+      <header className='header'>
+        <button onClick={handleChangeYear} aria-label={`View ${selectedYear - 1}`}>
+          &#60;
+        </button>
+        <input
+          onChange={handleChangeYear}
+          className='selected-year'
+          type='tel'
+          value={selectedYear}
+        />
+        <button onClick={handleChangeYear} aria-label={`View ${selectedYear + 1}`}>
+          &#62;
+        </button>
       </header>
-    </div>
+
+      {allMonths.map((month, i) => (
+        <Month key={uuidv4()} month={i + 1} year={selectedYear} />
+      ))}
+    </main>
   );
 }
 

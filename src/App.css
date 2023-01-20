@@ -1,38 +1,115 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+
+:root {
+  --accentColor: #5539cc;
+  --bold: 900;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+input {
+  font: inherit;
+}
+
+.container {
+  display: grid;
+  place-content: center;
+  padding-bottom: 5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  height: 150px;
+}
+
+.header button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: var(--bold);
+  padding: 0.5rem;
+  cursor: pointer;
+  color: rgb(179, 179, 179);
+}
+
+.selected-year {
+  font-size: 3rem;
+  line-height: 1;
+  border: none;
+  font-weight: var(--bold);
+  text-align: center;
+  width: 150px;
+}
+
+.selected-year:focus {
+  outline: none;
+}
+
+.month-container + .month-container {
+  margin-top: 7rem;
+}
+
+.month {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+}
+
+.day {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.weekday {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weekday:nth-child(7n + 1),
+.weekday:nth-child(7n + 7),
+.day:nth-child(7n + 1),
+.day:nth-child(7n + 7) {
+  color: var(--accentColor);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.today {
+  display: grid;
+  place-content: center;
+  background-color: var(--accentColor);
   color: white;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  margin-top: -4px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media screen and (max-width: 600px) {
+  .calendar {
+    gap: 0.5rem;
   }
 }
