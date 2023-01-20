@@ -12,12 +12,14 @@ export default function Month({ month, year }) {
         {showMonth} {year}
       </h2>
 
-      <ol className='calendar'>
+      <ol className='weekdays'>
         {weekDays.map((day, i) => (
           <li className='weekday' key={uuidv4()}>
             {day}
           </li>
         ))}
+      </ol>
+      <ol className='calendar'>
         {firstDay.map((day) => (
           <li className='day' key={uuidv4()}></li>
         ))}

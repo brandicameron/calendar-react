@@ -76,19 +76,18 @@ input {
   margin-bottom: 0.25rem;
 }
 
+.weekdays,
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  align-items: center;
   gap: 1rem;
+  text-align: center;
 }
 
 .day {
   text-align: center;
   font-size: 1.25rem;
-}
-
-.weekday {
-  text-align: center;
 }
 
 .weekday:nth-child(7n + 1),
